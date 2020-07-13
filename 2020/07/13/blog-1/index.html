@@ -10,7 +10,7 @@
     
     
     
-    <title>hexo1 | Hexo</title>
+    <title>2015ACM/ICPC亚洲区沈阳站 | Hexo</title>
     <!-- inject:style -->
     <link href="/css/style.css" rel="stylesheet" type="text/css">
     <!-- endinject -->
@@ -161,57 +161,26 @@
     <div class="cube-content">
         <div class="cube-left">
             <div class="cube-article">
-    <h1 class="title">hexo1</h1>
+    <h1 class="title">2015ACM/ICPC亚洲区沈阳站</h1>
     
     <div class="cube-article-header">
         <div class="cube-article-date">
             <i class="cube-icon cube-icon-date" aria-hidden="true"></i>
             <!-- moment.js对象 -->
-            2020-07-12
+            2020-07-13
         </div>
         <div class="cube-article-tags">
     <i class="cube-icon cube-icon-tag" aria-hidden="true"></i>
     
-    <a href="/tags/hexo/">#hexo</a>
+    <a href="/tags/%E5%AE%B9%E6%96%A5-%E5%8C%BA%E5%9F%9F%E8%B5%9B/">#容斥 区域赛</a>
     
 </div>
     </div>
     
     <div class="cube-article-content cube-markdown">
         
-        <h1 id="hexo-使用大纲"><a href="#hexo-使用大纲" class="headerlink" title="hexo 使用大纲"></a>hexo 使用大纲</h1><h2 id="第一章：创建"><a href="#第一章：创建" class="headerlink" title="第一章：创建"></a><strong>第一章：创建</strong></h2><p>hexo  new &lt;模板&gt; &lt;文章名&gt;</p>
-<table>
-<thead>
-<tr>
-<th>参数</th>
-<th>功能</th>
-<th>路径</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>post</td>
-<td>新建文章</td>
-<td>/source/_posts/</td>
-</tr>
-<tr>
-<td>draft</td>
-<td>新建草稿</td>
-<td>/source/_posts/</td>
-</tr>
-<tr>
-<td>page</td>
-<td>新建页面</td>
-<td>/source/</td>
-</tr>
-</tbody></table>
-<hr>
-<h2 id="第二章："><a href="#第二章：" class="headerlink" title="第二章："></a>第二章：</h2><p>内容</p>
-<hr>
-<p>参考文献</p>
-<p><a href="paulthewineguy.github.io/hexo1.html"></a></p>
-<hr>
-<p>…</p>
-
+        <h2 id="F-Frogs"><a href="#F-Frogs" class="headerlink" title="F Frogs"></a>F Frogs</h2><p>题意：有一个长为m的环，n只青蛙，每只青蛙能向前跳ai，问被跳到过的石子编号(0~m-1)和。<br>首先可知第i只青蛙跳的间隔（步长）为g[i]=gcd(ai,m),易得其贡献为m(m/g[i]-1)/2。<br>考虑容斥：<br>首先g[i]都是m的因子，那么我们先预处理出m的所有因子fac，对于 g[i]，所有fac[i]%g[i]==0，都会产生贡献。<br>这里用vis先标记是否会产生贡献（是否考虑），再用num记录实际贡献，这样实际贡献为 =》贡献(vis[i]-num[i])；<br>计算完贡献后修正num，服务于后面的计算。 </p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">1e4</span>+<span class="number">5</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> inf = <span class="number">0x3f3f3f3f</span>;</span><br><span class="line"><span class="keyword">const</span> ll INF = <span class="number">1e18</span>;</span><br><span class="line"><span class="keyword">const</span> ll mod = <span class="number">998244353</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> for1(i,n) for(int i=1;i&lt;=n;i++)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> forn(i,n) for(int i=0;i&lt;n;i++)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> m_p(x,y) make_pair(x,y)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> mem0(a) memset(a,0,sizeof(a))</span></span><br><span class="line"><span class="function"><span class="keyword">inline</span> ll <span class="title">read</span> <span class="params">()</span></span>&#123;</span><br><span class="line">    ll x=<span class="number">0</span>,f=<span class="number">1</span>;<span class="keyword">char</span> ch=getchar();</span><br><span class="line">    <span class="keyword">while</span>(ch&lt;<span class="string">'0'</span>||ch&gt;<span class="string">'9'</span>)&#123;<span class="keyword">if</span>(ch==<span class="string">'-'</span>)f=<span class="number">-1</span>;ch=getchar();&#125;</span><br><span class="line">    <span class="keyword">while</span>(ch&gt;=<span class="string">'0'</span>&amp;&amp;ch&lt;=<span class="string">'9'</span>)&#123;x=x*<span class="number">10</span>+ch-<span class="string">'0'</span>;ch=getchar();&#125;</span><br><span class="line">    <span class="keyword">return</span> x*f;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">ll <span class="title">gcd</span> <span class="params">(ll a,ll b)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(b==<span class="number">0</span>) <span class="keyword">return</span> a;</span><br><span class="line">	<span class="keyword">return</span> gcd(b, a%b);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">ll g[maxn],fac[maxn];</span><br><span class="line"><span class="keyword">int</span> vis[maxn],num[maxn];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span> <span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> t;<span class="built_in">cin</span> &gt;&gt; t;</span><br><span class="line">	for1(T,t)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">int</span> n,ok=<span class="number">0</span>;<span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">		ll m=<span class="built_in">read</span>();</span><br><span class="line">		mem0(vis);mem0(num);</span><br><span class="line">		forn(i,n)&#123;</span><br><span class="line">			g[i]=gcd(<span class="built_in">read</span>(),m);<span class="keyword">if</span>(g[i]==<span class="number">1</span>) ok=<span class="number">1</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span>(ok==<span class="number">1</span>)&#123;<span class="built_in">printf</span>(<span class="string">"Case #%d: %lld\n"</span>,T,m*(m<span class="number">-1</span>)/<span class="number">2</span>);<span class="keyword">continue</span>;&#125;<span class="comment">//这里特判因子1；因子0不做贡献. </span></span><br><span class="line">		sort(g,g+n);</span><br><span class="line">		n = unique(g,g+n)-g;</span><br><span class="line">		</span><br><span class="line">		<span class="built_in">vector</span>&lt;ll&gt; fac;</span><br><span class="line">		<span class="keyword">for</span>(ll i=<span class="number">2</span>;i&lt;=<span class="built_in">sqrt</span>(m);i++)&#123;</span><br><span class="line">			<span class="keyword">if</span>(m%i==<span class="number">0</span>)&#123;</span><br><span class="line">				fac.push_back(i);</span><br><span class="line">				fac.push_back(m/i);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		sort(fac.<span class="built_in">begin</span>(),fac.<span class="built_in">end</span>());</span><br><span class="line">		</span><br><span class="line">		forn(i,n)&#123;</span><br><span class="line">			forn(j,fac.<span class="built_in">size</span>())&#123;</span><br><span class="line">				<span class="keyword">if</span>(fac[j] % g[i]==<span class="number">0</span>) vis[j]=<span class="number">1</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">/*forn(j,fac.size())&#123;</span></span><br><span class="line"><span class="comment">			if(vis[j]) cout &lt;&lt; fac[j] &lt;&lt; "*";&#125;*/</span></span><br><span class="line">		</span><br><span class="line">		ll sum=<span class="number">0</span>;</span><br><span class="line">		forn(i,fac.<span class="built_in">size</span>())&#123;</span><br><span class="line">			<span class="keyword">if</span>(num[i] != vis[i])&#123;</span><br><span class="line">				sum += m*(m/fac[i]<span class="number">-1</span>)/<span class="number">2</span>*(vis[i]-num[i]);</span><br><span class="line">				<span class="keyword">for</span>(<span class="keyword">int</span> j=i+<span class="number">1</span>;j&lt;fac.<span class="built_in">size</span>();j++)</span><br><span class="line">					<span class="keyword">if</span>(fac[j]%fac[i]==<span class="number">0</span>)</span><br><span class="line">						num[j] += vis[i]-num[i];</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"Case #%d: %lld\n"</span>,T,sum);</span><br><span class="line">	&#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
     </div>
 </div>
 
@@ -220,8 +189,8 @@
         
         
         <li class="next">
-            <a href="/2020/07/11/hello-world/">
-                Hello World
+            <a href="/2020/07/12/hexo1/">
+                hexo1
                 <i class="cube-icon cube-next" aria-hidden="true"></i>
             </a>
         </li>
@@ -271,8 +240,8 @@
     
     
     <div class="count">
-        <a class="count articles"><span>2</span>Article</a>
-        <a class="count tags"><span>1</span>Tags</a>
+        <a class="count articles"><span>3</span>Article</a>
+        <a class="count tags"><span>2</span>Tags</a>
         <a class="count categories"><span>0</span>Categories</a>
     </div>
 </div>
@@ -310,7 +279,7 @@
                     <span>1</span>
                 </p>
                 <p class="title">
-                    <a href="/2020/07/12/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/" title="hexo1">hexo1</a>
+                    <a href="/2020/07/13/blog-1/" title="2015ACM/ICPC亚洲区沈阳站">2015ACM/ICPC亚洲区沈阳站</a>
                 </p>
             </div>
             
@@ -322,6 +291,19 @@
             <div class="normal">
                 <p class="index">
                     <span>2</span>
+                </p>
+                <p class="title">
+                    <a href="/2020/07/12/hexo1/" title="hexo1">hexo1</a>
+                </p>
+            </div>
+        </li>
+        
+        
+        
+        <li>
+            <div class="normal">
+                <p class="index">
+                    <span>3</span>
                 </p>
                 <p class="title">
                     <a href="/2020/07/11/hello-world/" title="Hello World">Hello World</a>
@@ -346,6 +328,11 @@
         
         <div class="cube-box ">
             <a href="/tags/hexo/">#hexo</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
+            <a href="/tags/%E5%AE%B9%E6%96%A5-%E5%8C%BA%E5%9F%9F%E8%B5%9B/">#容斥 区域赛</a>
         </div>
         
     </div>
