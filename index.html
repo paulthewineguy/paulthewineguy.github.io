@@ -769,6 +769,16 @@
 
 <p>这样以后就不用手打了呢</p>
 <p><a href="https://www.jianshu.com/p/f138032e7539" target="_blank" rel="noopener">参考文献</a></p>
+<h3 id="mac-下找不到shh"><a href="#mac-下找不到shh" class="headerlink" title="mac 下找不到shh"></a>mac 下找不到shh</h3><p>在终端下运行 cat ~/.ssh/id_rsa.pub 命令检查是否已有一个SSH密码</p>
+<p>如果存在。</p>
+<p>存在：直接复制使用</p>
+<p>不存在：运行 ssh-keygen -t rsa -C “托管源代码邮箱”</p>
+<p>此命令会提示您输入存储密钥的位置和文件名。只需按enter使用默认值，</p>
+<p>重新动行 cat ~/.ssh/id_rsa.pub 即可得到SSH密钥 </p>
+<p>出错如何处理：</p>
+<p>.ssh/config line 4: garbage at end of line; “Enterprise”. fatal</p>
+<p>打开.ssh文件夹 $ open ~/.ssh</p>
+<p>删除所有的文件重新生成ssh的rsa密钥即可解决问题<br><a href="https://blog.csdn.net/u012943853/article/details/84780907" target="_blank" rel="noopener">参考文献</a></p>
 <hr>
 
           
